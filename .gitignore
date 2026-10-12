@@ -1,0 +1,12 @@
+# File con dati dei clienti, non pubblicabili (decisione della scuola)
+data/*.csv
+output/*
+!output/README.md
+
+# File Power BI (contengono dati incorporati)
+*.pbix
+
+# File temporanei
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
