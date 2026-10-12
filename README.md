@@ -2,7 +2,7 @@
 
 Progetto di Customer Analytics realizzato come capstone del Master in Data Science (Rome Business School), in collaborazione con un team di 7 persone. Il progetto analizza la clientela di una società italiana del settore della logistica, indicata nel testo come «l'azienda».
 
-> **Dati non inclusi.** I dati dei clienti sono stati forniti dalla scuola a fini didattici e non sono pubblicati in questo repository, per decisione della scuola. Con l'autorizzazione della scuola sono pubblicati il codice, la documentazione e i risultati aggregati (grafici e screenshot delle dashboard), senza alcun dato a livello di singolo cliente. Il notebook e il modello Power BI non sono quindi rieseguibili senza il file originale: vedi «Come eseguire il notebook».
+> **Dati non inclusi.** I dati dei clienti sono stati forniti dalla scuola a fini didattici e non sono pubblicati in questo repository, per decisione della scuola; con l'autorizzazione di quest'ultima invece sono pubblicati il codice, la documentazione e i risultati aggregati (grafici e screenshot delle dashboard), senza alcun dato a livello di singolo cliente. Il notebook e il modello Power BI non sono quindi rieseguibili senza il file originale: vedi «Come eseguire il notebook».
 
 ## Sintesi dei risultati
 
