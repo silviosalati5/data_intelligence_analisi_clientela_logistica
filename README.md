@@ -4,7 +4,7 @@ Progetto di Customer Analytics realizzato come capstone del Master in Data Scien
 
 **Ruolo:** preparazione dei dati, dashboard Power BI e storytelling dei risultati (dettagli in «Il mio contributo»).
 
-> **Dati non inclusi.** I dati dei clienti sono stati forniti dalla scuola a fini didattici e non sono pubblicati in questo repository, per decisione della scuola. Con l'autorizzazione della scuola sono pubblicati il codice, la documentazione e i risultati aggregati (grafici e screenshot delle dashboard), senza alcun dato a livello di singolo cliente. Il notebook e il modello Power BI non sono quindi rieseguibili senza il file originale: vedi «Come eseguire il notebook».
+> **Dati non inclusi**. I dati dei clienti sono stati forniti dalla scuola a fini didattici e non sono pubblicati in questo repository, come da sua decisione. Con la sua autorizzazione sono invece pubblicati il codice, la documentazione e i risultati aggregati (grafici e screenshot delle dashboard), senza alcun dato a livello di singolo cliente. Il notebook e il modello Power BI non sono quindi rieseguibili senza il file originale: vedi «Come eseguire il notebook».
 
 ## In breve
 
