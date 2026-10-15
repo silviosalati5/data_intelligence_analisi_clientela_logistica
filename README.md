@@ -2,7 +2,22 @@
 
 Progetto di Customer Analytics realizzato come capstone del Master in Data Science (Rome Business School), in collaborazione con un team di 7 persone. Il progetto analizza la clientela di una società italiana del settore della logistica, indicata nel testo come «l'azienda».
 
-> **Dati non inclusi.** I dati dei clienti sono stati forniti a fini didattici dalla scuola e non sono pubblicati in questo repository, come da sua decisione. Con la sua autorizzazione sono invece pubblicati il codice, la documentazione e i risultati aggregati (grafici e screenshot delle dashboard), senza alcun dato a livello di singolo cliente. Il notebook e il modello Power BI non sono quindi rieseguibili senza il file originale: vedi «Come eseguire il notebook».
+**Ruolo:** preparazione dei dati, dashboard Power BI e storytelling dei risultati (dettagli in «Il mio contributo»).
+
+> **Dati non inclusi.** I dati dei clienti sono stati forniti dalla scuola a fini didattici e non sono pubblicati in questo repository, per decisione della scuola. Con l'autorizzazione della scuola sono pubblicati il codice, la documentazione e i risultati aggregati (grafici e screenshot delle dashboard), senza alcun dato a livello di singolo cliente. Il notebook e il modello Power BI non sono quindi rieseguibili senza il file originale: vedi «Come eseguire il notebook».
+
+## In breve
+
+Analisi di 20.436 clienti con 36 mesi di ricavi mensili: pulizia dei dati, indicatori comportamentali (periodo di vita, frequenza, trend del ricavo), un segnale di collasso per i clienti che il trend non coglie, dashboard Power BI e raccomandazioni commerciali nel breve, medio e lungo periodo.
+
+- **Ricavo in ripresa, base clienti in calo**: +11,9% nell'ultimo anno (da 106,3 a 119,0 M€), ma i clienti attivi sono scesi da 15.723 a 13.874.
+- **Forte concentrazione**: il 1% dei clienti (205) genera il 48,1% del ricavo dell'ultimo anno.
+- **La dimensione del cliente non spiega la spesa**: il ricavo non è correlato né ai dipendenti né al fatturato dichiarato (correlazione di Spearman vicina a zero).
+- **Il trend di lungo periodo non basta**: il segnale di collasso individua 1.111 clienti, di cui 223 risultano ancora «Stabili» e «Attivi».
+
+## Contesto e obiettivo
+
+Il settore della logistica ha assunto un ruolo sempre più strategico, spinto dalla crescita dell'e-commerce e dalla maggiore complessità delle catene di approvvigionamento. L'obiettivo è costruire una base analitica che traduca il comportamento dei 20.436 clienti in indicatori interpretabili (valore economico, settore ATECO, provincia) per supportare decisioni commerciali più efficaci. L'approccio è articolato in fasi: pulizia e controllo qualità dei dati, indicatori comportamentali, segmentazione, analisi delle tendenze e dashboard.
 
 ## Sintesi dei risultati
 
@@ -19,10 +34,8 @@ Progetto di Customer Analytics realizzato come capstone del Master in Data Scien
 
 *I grafici sono ricostruiti con Python (pandas e matplotlib) a partire dal dataset di output del notebook (non incluso), nello stile delle dashboard Power BI. Lo script è in `scripts/grafici_executive_summary.py`.*
 
-- **+11,9%**: dopo un calo del 5,3% nel secondo anno, il ricavo dell'ultimo anno cresce (da 106,3 a 119,0 M€), ma su una base di clienti attivi sempre più piccola (15.723 nel primo anno, 14.115 nel secondo, 13.874 nell'ultimo).
-- **48,1%**: il 1% dei clienti (205) genera quasi la metà del ricavo dell'ultimo anno.
-- **6,6 M€**: il ricavo scende ogni anno negli stessi mesi (M-28, M-16 e M-4: circa 6,6-6,8 M€ contro una media di ~9,4 M€), il che fa pensare a chiusure ricorrenti più che a un calo strutturale.
-- **Dimensione e spesa non coincidono**: il ricavo generato per l'azienda non risulta correlato né ai dipendenti né al fatturato dichiarato del cliente (correlazione di Spearman vicina a zero): la dimensione dell'azienda cliente, da sola, non spiega quanto spende.
+- Dopo un calo del 5,3% nel secondo anno, il ricavo dell'ultimo anno cresce, ma su una base di clienti attivi sempre più piccola (15.723 nel primo anno, 14.115 nel secondo, 13.874 nell'ultimo).
+- Il ricavo scende ogni anno negli stessi mesi (M-28, M-16 e M-4: circa 6,6-6,8 M€ contro una media di ~9,4 M€), il che fa pensare a chiusure ricorrenti più che a un calo strutturale.
 
 ## Qualità dei dati
 
@@ -42,12 +55,11 @@ Progetto di Customer Analytics realizzato come capstone del Master in Data Scien
 </tr>
 </table>
 
-*Screenshot della dashboard Power BI.*
+*Screenshot della dashboard Power BI. Le mappe mostrano le prime 10 province di ciascuna area per ricavo sui 36 mesi (le aree sono definite in «Dati e metodologia»).*
 
-- **Concentrazione al Nord**: dei 205 clienti del Top 1% (il 48,1% del ricavo dell'ultimo anno), 168 hanno una provincia nota: 89 sono al Nord (29,0 M€ nell'ultimo anno, +3,3 M€ sull'anno precedente), 51 al Sud (12,0 M€, +3,1 M€) e 28 al Centro (5,8 M€, +1,6 M€). I restanti 37 (10,5 M€) non hanno provincia o sono all'estero e non compaiono in queste viste.
-- **Province**: Milano ha il ricavo più alto nell'ultimo anno (14,8 M€, di cui 9,6 M€ dal Top 1%), seguita da Roma (8,3 M€), Napoli (6,2 M€) e Monza e Brianza (4,3 M€). Napoli compare in terza posizione solo dopo aver corretto la lettura della sigla `NA` (500 clienti), che in precedenza veniva scambiata per un dato mancante.
-- **Dettaglio per cliente**: nella dashboard una tabella elenca gli 84 clienti Top 1% delle 10 province con più ricavo Top 1% (MI, NA, MB, RM, VA, SA, BG, PA, RN, BZ), per un totale di 29,0 M€ nell'ultimo anno. La tabella non è pubblicata perché contiene dati dei singoli clienti. Per i clienti recenti il trend non è significativo.
-- **Mappe**: mostrano le prime 10 province di ciascuna area per ricavo sui 36 mesi (le aree sono definite in «Dati e metodologia»).
+- **Concentrazione al Nord**: dei 205 clienti del Top 1%, 168 hanno una provincia nota: 89 sono al Nord (29,0 M€ nell'ultimo anno), 51 al Sud (12,0 M€) e 28 al Centro (5,8 M€). I restanti 37 non hanno provincia o sono all'estero.
+- **Province**: Milano ha il ricavo più alto nell'ultimo anno (14,8 M€), seguita da Roma (8,3 M€), Napoli (6,2 M€) e Monza e Brianza (4,3 M€). Napoli compare in terza posizione solo dopo aver corretto la lettura della sigla `NA` (500 clienti), che in precedenza veniva scambiata per un dato mancante.
+- Nella dashboard esiste anche una tabella di dettaglio per cliente, non pubblicata perché contiene dati dei singoli clienti.
 
 ## Profilazione settoriale
 
@@ -64,9 +76,8 @@ Progetto di Customer Analytics realizzato come capstone del Master in Data Scien
 
 *Screenshot della dashboard Power BI. I nomi dei settori sono abbreviati nei grafici; i codici ATECO e le descrizioni ufficiali sono nella classificazione ISTAT in `data/ATECO.xlsb`.*
 
-- **Concentrazione**: i 10 settori con più ricavo generano il 41,0% del ricavo totale sui 36 mesi con il 14,4% dei clienti. Restano fuori i 403 clienti senza ATECO (4,2% del ricavo).
+- **Concentrazione**: i 10 settori con più ricavo generano il 41,0% del ricavo totale sui 36 mesi con il 14,4% dei clienti.
 - **Volume e valore**: il commercio online ha più clienti (1.392) e più ricavo (30,4 M€), ma un ricavo medio di circa 22 K€ per cliente. Governo e organi costituzionali (26 clienti) e servizi logistici per la distribuzione merci (106 clienti) hanno invece un ricavo medio di 228 K€ e 185 K€.
-- **Settori simili**: trasporto merci su strada e altri servizi alle imprese hanno valori quasi uguali (223 e 216 clienti, 13,7 e 13,0 M€), per questo nel grafico a bolle le due bolle si sovrappongono.
 - **Soglia minima**: il ricavo medio è mostrato solo per i settori con almeno 5 clienti.
 
 ## Raccomandazioni nel breve periodo: difesa del valore
@@ -82,12 +93,9 @@ Progetto di Customer Analytics realizzato come capstone del Master in Data Scien
 
 *Screenshot della dashboard Power BI, con la selezione attiva sui settori dalla 9ª alla 15ª posizione per ricavo. Il grafico con i singoli clienti in diminuzione non è pubblicato.*
 
-- **Selezione**: i settori dalla 9ª alla 15ª posizione per ricavo a 36 mesi comprendono 846 clienti e 29,9 M€ (l'8,9% del ricavo). I primi 8 settori sono quelli consolidati.
-- **Trend**: in questi sette settori i 141 clienti in diminuzione hanno generato 6,8 M€, circa due volte e mezzo i 61 clienti in aumento (2,6 M€); in 6 settori su 7 il ricavo dei clienti in calo supera quello dei clienti in crescita. Nei primi 8 settori non succede mai (13,0 M€ contro 27,2 M€).
-- **Clienti principali**: i clienti in diminuzione con più ricavo rientrano tutti nell'1% dei clienti per ricavo a 36 mesi, che genera il 45,6% del ricavo dello stesso periodo.
-- **Il calo è in gran parte già avvenuto**: i 141 clienti in diminuzione sono scesi da 3,5 M€ nel primo anno a 0,9 M€ nell'ultimo, e 71 sono già persi (nessun acquisto da almeno 3 mesi). Nell'ultimo anno i clienti in aumento hanno ricavato più di quelli in diminuzione (1,3 M€ contro 0,9 M€).
-- **Azione 1, retention**: sui 70 clienti in diminuzione ancora attivi (0,9 M€ nell'ultimo anno), a partire da quelli con più ricavo, che rientrano nell'1% anche per il ricavo dell'ultimo anno.
-- **Azione 2, recupero**: sui 71 clienti in diminuzione già persi (1,2 M€ in 36 mesi): capire le cause della contrazione e definire iniziative mirate per recuperare i volumi.
+- **Trend**: nei settori dalla 9ª alla 15ª posizione (846 clienti, 29,9 M€) i 141 clienti in diminuzione hanno generato 6,8 M€, circa due volte e mezzo i 61 clienti in aumento (2,6 M€). Il calo è però in gran parte già avvenuto: da 3,5 M€ nel primo anno a 0,9 M€ nell'ultimo, e 71 clienti sono già persi.
+- **Azione 1, retention**: sui 70 clienti in diminuzione ancora attivi, a partire da quelli con più ricavo.
+- **Azione 2, recupero**: sui 71 clienti già persi, capire le cause della contrazione e definire iniziative mirate per recuperare i volumi.
 
 ## Raccomandazioni nel medio periodo: «Protect and shift»
 
@@ -100,11 +108,10 @@ Progetto di Customer Analytics realizzato come capstone del Master in Data Scien
 
 *Screenshot della dashboard Power BI. Esclusi i clienti senza provincia o all'estero (14,7% dei clienti, 15,6% del ricavo).*
 
-- **Caso Liguria**: è la regione con il maggior calo di ricavo tra l'anno 2 e l'anno 3, sia in percentuale (−44,4%) sia in valore (−1,59 M€). Le altre regioni in calo sono Molise (−31,6%), Umbria (−10,4%), Valle d'Aosta (−6,9%), Toscana (−5,2%) e Marche (−0,6%); la Liguria è la decima per ricavo a 36 mesi (7,7 M€).
-- **Un calo concentrato**: la variazione della regione dipende da una parte molto ristretta della clientela, più che da un calo diffuso. Il dettaglio per settore non è pubblicato, per ridurre il rischio di riconoscere singole aziende.
+- **Caso Liguria**: è la regione con il maggior calo di ricavo tra l'anno 2 e l'anno 3, sia in percentuale (−44,4%) sia in valore (−1,59 M€). La variazione dipende da una parte molto ristretta della clientela; il dettaglio per settore non è pubblicato, per ridurre il rischio di riconoscere singole aziende.
 - **Il trend inganna**: il trend di lungo periodo classifica «Stabili» anche clienti il cui ricavo si è concentrato in pochi mesi e poi è crollato; il segnale di collasso, introdotto per questo motivo, li individua.
 - **Azione 1**: verificare con l'area commerciale se il calo dipende da un progetto concluso o da una relazione compromessa, prima di attivare azioni di retention.
-- **Azione 2**: sviluppare i settori e i clienti che crescono in regione, il che ridurrebbe la dipendenza da poche posizioni, tenendo conto che il loro peso è ancora piccolo rispetto al calo.
+- **Azione 2**: sviluppare i settori e i clienti che crescono in regione, per ridurre la dipendenza da poche posizioni.
 
 ## Raccomandazioni nel lungo periodo: sviluppo mirato
 
@@ -112,17 +119,9 @@ Progetto di Customer Analytics realizzato come capstone del Master in Data Scien
 
 *Screenshot della dashboard Power BI. Esclusi i clienti senza provincia o all'estero (14,7% dei clienti, 15,6% del ricavo).*
 
-- **Caso Varese**: è la 5ª provincia per ricavo dei clienti con trend in aumento (2,9 M€ in 36 mesi; 6ª sull'ultimo anno, con 1,3 M€), dopo Milano (7,9 M€), Napoli (5,6 M€), Roma (4,0 M€) e Monza e Brianza (3,0 M€).
-- **Crescita**: i 19 clienti in aumento di Varese (su 300) sono passati da 0,63 M€ nel primo anno a 0,98 M€ nel secondo e 1,30 M€ nell'ultimo.
-- **Concentrazione**: la crescita di Varese dipende da pochissimi clienti, che da soli valgono circa il 90% del ricavo in aumento della provincia. Il dettaglio per settore non è pubblicato, per ridurre il rischio di riconoscere singole aziende.
+- **Caso Varese**: è la 5ª provincia per ricavo dei clienti con trend in aumento (2,9 M€ in 36 mesi). I 19 clienti in aumento sono passati da 0,63 M€ nel primo anno a 1,30 M€ nell'ultimo, ma la crescita dipende da pochissimi clienti, che da soli valgono circa il 90% del ricavo in aumento della provincia. Il dettaglio per settore non è pubblicato, per ridurre il rischio di riconoscere singole aziende.
 - **Azione 1, key account**: programma di fidelizzazione per i pochi clienti che concentrano la crescita.
-- **Azione 2, marketing mirato**: campagne di lead generation su settori affini, dopo aver verificato se questi clienti rappresentano un segmento replicabile nell'area: la base è molto ristretta.
-
-## Contesto e obiettivo
-
-Il settore della logistica ha assunto un ruolo sempre più strategico, spinto dalla crescita dell'e-commerce e dalla maggiore complessità delle catene di approvvigionamento. L'obiettivo del progetto è costruire una base analitica strutturata che traduca il comportamento dei 20.436 clienti dell'azienda in indicatori interpretabili — non solo in termini di valore economico generato, ma anche di provenienza settoriale (ATECO) e geografica (provincia) — per supportare decisioni commerciali più efficaci.
-
-L'approccio è **data-driven e articolato in più fasi**: pulizia e controllo qualità dei dati, costruzione di indicatori comportamentali, segmentazione della clientela, analisi delle tendenze, e infine visualizzazione tramite dashboard interattive.
+- **Azione 2, marketing mirato**: campagne di lead generation su settori affini, dopo aver verificato se questi clienti rappresentano un segmento replicabile: la base è molto ristretta.
 
 ## Dati e metodologia
 
@@ -160,9 +159,9 @@ Il flag segnala 1.111 clienti su 5.109 rilevanti. Di questi, 223 risultano allo 
 
 ## Limiti del progetto
 
-- **Qualità dei dati**: valori mancanti e codifiche non uniformi hanno richiesto una pulizia estesa. Il 14,7% dei clienti (3.000) non ha una provincia identificabile e il 2,0% (403) non è classificabile per ATECO; i 143 clienti con ricavi negativi sono stati mantenuti come storni o note di credito (vedi «Qualità dei dati» e «Decisioni chiave di data quality»).
+- **Qualità dei dati**: valori mancanti e codifiche non uniformi hanno richiesto una pulizia estesa. Il 14,7% dei clienti (3.000) non ha una provincia identificabile e il 2,0% (403) non è classificabile per ATECO; i 143 clienti con ricavi negativi sono stati mantenuti come storni o note di credito.
 - **Definizione di "attivo"**: un cliente è attivo se ha almeno un mese con ricavo maggiore di zero, anche di pochi euro (il 10% circa dei mesi con ricavo vale tra 1 e 10 €). Un cliente praticamente fermo può quindi risultare attivo; il segnale di collasso mitiga il problema ma non lo elimina.
-- **Clienti recenti**: per i 2.071 clienti con primo acquisto negli ultimi 9 mesi (1.463 attivi e 608 persi) la frequenza risulta sempre «occasionale», perché è calcolata sui 36 mesi osservati, e il trend sempre «Stabile», perché la pendenza di Theil-Sen su una serie in gran parte a zero è nulla. Un cliente nuovo con ricavi elevati, tutti concentrati nell'ultimo anno, risulta quindi «Stabile» e «occasionale»: per questi clienti frequenza e trend non sono informativi e il periodo di vita va letto insieme alle altre segmentazioni.
+- **Clienti recenti**: per i 2.071 clienti con primo acquisto negli ultimi 9 mesi (1.463 attivi e 608 persi) la frequenza risulta sempre «occasionale», perché è calcolata sui 36 mesi osservati, e il trend sempre «Stabile», perché la pendenza di Theil-Sen su una serie in gran parte a zero è nulla. Per questi clienti frequenza e trend non sono informativi e il periodo di vita va letto insieme alle altre segmentazioni.
 - **Soglie del segnale di collasso**: sono scelte di giudizio, non derivate dai dati (parametri modificabili nel notebook), e il flag è piuttosto ampio (1.111 clienti segnalati); l'insieme più rilevante è quello dei 223 clienti "Stabili" e "Attivi" con segnale.
 - **Orizzonte temporale limitato**: 36 mesi permettono di individuare trend recenti ma non di verificarne la persistenza su periodi più lunghi.
 - **Privacy dei casi Liguria e Varese**: per ridurre il rischio di riconoscere singole aziende, i grafici per settore e gli importi di questi due casi non sono pubblicati; l'analisi resta a livello di regione e provincia.
